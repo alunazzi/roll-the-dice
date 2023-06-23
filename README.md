@@ -11,7 +11,7 @@ DESCRIPTION:
 WEBSITE STRUCTURE:  
     The structure of the wesbsite is very simple:  
         U+1F5CE index.html  
-        U+1F4C1 css  
+        &#128193 css  
             U+1F5CE roll_the_dice.css  
         U+1F4C1 js  
             U+1F5CE dieroller.js  
