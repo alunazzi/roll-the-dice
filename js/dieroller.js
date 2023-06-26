@@ -73,7 +73,7 @@ function addDice(currentDiceNo, inputinputDiceNo) {
         let cardContainerClone = cardContainer.cloneNode(true);
         // Update the ID and update player
         cardContainerClone.id = 'card-container-' + containerId; 
-        cardContainerClone.querySelector('h2').innerHTML = 'Player ' + containerId;
+        cardContainerClone.querySelector('h2').innerHTML = 'Die ' + containerId;
         cardContainerClone.querySelector('.die').id = 'die-' + containerId;
         // Inject it into the DOM
         let lastcardContainer = document.getElementById('dice-container-1'); 
