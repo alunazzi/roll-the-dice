@@ -1,5 +1,5 @@
 const updateNoButton = document.getElementById('update-no');
-const playerNoInput = document.getElementById('player-no'); 
+const diceNoInput = document.getElementById('dice-number'); 
 const theTitle = document.getElementById('the-title');
 const dieRoller = document.getElementById('die-roller');
 
@@ -9,13 +9,13 @@ const dieRoller = document.getElementById('die-roller');
 
 updateNoButton.addEventListener('click', () => {
     buttonAnimation(updateNoButton);
-    playerManager();
+    diceManager();
 });
 
 // use onkeypress="return event.keyCode != 13" in the HTML input field to avoid refreshing the page
-playerNoInput.addEventListener('keypress', function (e) {
+diceNoInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        playerManager();
+        diceManager();
     }
 });
 
@@ -28,33 +28,33 @@ dieRoller.addEventListener('click', () => {
 
 //    MAIN FUNCTION    ////////////////////////////////////////////////////////////////////////////
 
-// called in the event handler, manages the number of players based on the users' input
-function playerManager() {
-    let currentPlayers = document.querySelectorAll('#dice-container-1 .player-container').length;
+// called in the event handler, manages the number of dice based on the users' input
+function diceManager() {
+    let currentDiceNo = document.querySelectorAll('#dice-container-1 .card-container').length;
     // user input number
-    let playerNo = Number(playerNoInput.value)
-    if ((playerNo === 0) || (playerNo === 1) || (playerNo < 0)) {
-        playerNoInput.value = 1;
+    let inputinputDiceNo = Number(diceNoInput.value)
+    if ((inputinputDiceNo === 0) || (inputinputDiceNo === 1) || (inputinputDiceNo < 0)) {
+        diceNoInput.value = 1;
         theTitle.querySelector('h1').innerHTML = "(Roll_the_Die)";
-        if (playerNo > 0) {
-            removePlayers(currentPlayers, playerNo)
+        if (inputinputDiceNo > 0) {
+            removeDice(currentDiceNo, inputinputDiceNo)
         }
     } else {
         theTitle.querySelector('h1').innerHTML = "(Roll_the_Dice)";
-        // if the number of players entered by the user is higher than the current number add more dice
-        if (playerNo == currentPlayers) { 
+        // if the number of dice entered by the user is higher than the current number add more dice
+        if (inputinputDiceNo == currentDiceNo) { 
             return;
-        } else if (playerNo > currentPlayers) {
+        } else if (inputinputDiceNo > currentDiceNo) {
             // reset dice to their initial value
             resetDice();
-            // add players
-            addPlayers(currentPlayers, playerNo)
-        // if the current number of player is higher than the number of players entered by the user remove dice
-        } else if (currentPlayers > playerNo) {
+            // add dice
+            addDice(currentDiceNo, inputinputDiceNo)
+        // if the current number of player is higher than the number of dice entered by the user remove dice
+        } else if (currentDiceNo > inputinputDiceNo) {
             // reset dice to their initial value
             resetDice();
-            // add players
-            removePlayers(currentPlayers, playerNo)
+            // add dice
+            removeDice(currentDiceNo, inputinputDiceNo)
         }
     }
 }
@@ -63,16 +63,16 @@ function playerManager() {
 
 //   SUPPORT FUNCTIONS   //////////////////////////////////////////////////////////////////////////
 
-// given the current players and the user input add more players slots
-function addPlayers(currentPlayers, playerNo) {
-    let containerId = currentPlayers + 1;
-    while (playerNo > currentPlayers) {
+// given the current dice and the user input add more dice slots
+function addDice(currentDiceNo, inputinputDiceNo) {
+    let containerId = currentDiceNo + 1;
+    while (inputinputDiceNo > currentDiceNo) {
         // Get the element to clone
-        let playerContainer = document.querySelector('#player-container-1');
+        let playerContainer = document.querySelector('#card-container-1');
         // Create a copy of it
         let playerContainerClone = playerContainer.cloneNode(true);
         // Update the ID and update player
-        playerContainerClone.id = 'player-container-' + containerId; 
+        playerContainerClone.id = 'card-container-' + containerId; 
         playerContainerClone.querySelector('h2').innerHTML = 'Player ' + containerId;
         playerContainerClone.querySelector('.die').id = 'die-' + containerId;
         // Inject it into the DOM
@@ -80,31 +80,31 @@ function addPlayers(currentPlayers, playerNo) {
         //lastPlayerContainer.after(playerContainerClone);
         lastPlayerContainer.appendChild(playerContainerClone);
         containerId++;
-        playerNo--;
+        inputinputDiceNo--;
     }
 }
 
 
 
-// given the current players and the user input remove the difference 
-function removePlayers(currentPlayers, playerNo) {
+// given the current dice number and the user input remove the difference 
+function removeDice(currentDiceNo, inputinputDiceNo) {
     let lastPlayerContainer = document.querySelector('#dice-container-1');
-    while (currentPlayers > playerNo) {
+    while (currentDiceNo > inputinputDiceNo) {
         lastPlayerContainer.removeChild(lastPlayerContainer.lastElementChild);
-        currentPlayers--;
+        currentDiceNo--;
     }
 }
 
 
 
 function diceRoller() {
-    let currentPlayers = document.querySelectorAll('#dice-container-1 .player-container').length;
-    while (currentPlayers > 0) {
+    let currentDiceNo = document.querySelectorAll('#dice-container-1 .card-container').length;
+    while (currentDiceNo > 0) {
         let randomNumber = Math.floor(Math.random() * 6) + 1;
-        let die = document.getElementById('die-' + currentPlayers)
+        let die = document.getElementById('die-' + currentDiceNo)
         dieAnimation(die)   // can be commented to disable the animation
         setDieFace(die, randomNumber);
-        currentPlayers--;
+        currentDiceNo--;
     }
     
 }
@@ -230,9 +230,9 @@ function buttonStateManager(command){
 
 // reset all dice to 6
 function resetDice() {
-    let currentPlayers = document.querySelectorAll('#dice-container-1 .player-container').length;
-    while (currentPlayers > 0) {
-        let die = document.getElementById('die-' + currentPlayers)
+    let currentDiceNo = document.querySelectorAll('#dice-container-1 .card-container').length;
+    while (currentDiceNo > 0) {
+        let die = document.getElementById('die-' + currentDiceNo)
         die.querySelector('.n1').classList.remove('hidden');
         die.querySelector('.n2').classList.add('hidden');
         die.querySelector('.n3').classList.remove('hidden');
@@ -242,7 +242,7 @@ function resetDice() {
         die.querySelector('.n7').classList.remove('hidden');
         die.querySelector('.n8').classList.add('hidden');
         die.querySelector('.n9').classList.remove('hidden');
-        currentPlayers--;
+        currentDiceNo--;
     } 
 }
 

@@ -88,13 +88,13 @@ input {
     border-radius: 20px;
 }
 
-.player-container {
+.card-container {
     border-radius: 30px;
     background-color: #161b23;
     padding: 30px
 }
 
-.player-name {
+.die-id {
     display: flex;
     justify-content: center;
 }
@@ -123,7 +123,7 @@ input {
     align-items: center;
 }
 
-.die-number{
+.face-number{
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -170,4 +170,16 @@ button {
 .disabled {
     background-image: linear-gradient(to right, #636574, #DEDEEF, #F6F6F9);
     color: black;
+}
+
+@media (width < 600px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (width < 450px) {
+    h1 {
+        font-size: 3rem;
+    }
 }

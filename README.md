@@ -24,6 +24,6 @@ Roll 'em.
 
 
 **FUNCTIONALITIES:**  
-    - 99 maximum number of players;  
-    - Updating the number of players resets the dice;  
+    - 99 maximum number of dice;  
+    - Updating the number of dice resets the dice;  
     - Rolling the dice temporarily disables the buttons.  

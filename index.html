@@ -5,6 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <!-- SHARE IMAGE -->
+        <meta property="og:image" content="img/">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="img/favicon/site.webmanifest">
+
+        <!-- CSS -->
         <link rel="stylesheet" href="css/roll_the_dice.css">
 
         <title> Roll the Dice! </title>
@@ -17,35 +30,35 @@
             
             <form class="user-input">
                 <div class="input-container spacer-bot30">
-                    <label for="player-no"> Players number: </label>
-                    <input type="text" id="player-no" class="player-no" name="player-no" value="1" maxlength="2" size="5" pattern="[0-9]+" onkeypress="return event.keyCode != 13">
+                    <label for="dice-number"> Dice number: </label>
+                    <input type="text" id="dice-number" class="dice-number" name="dice-number" value="1" maxlength="2" size="5" pattern="[0-9]+" onkeypress="return event.keyCode != 13">
                     <button id="update-no" class="secondary-button hover" type="button"> Update </button>
                 </div>
             </form>
 
+            <div class="button-container spacer-bot50">
+                <button id="die-roller" class="primary-button hover" type="button"> Roll! </button>
+            </div>
+
             <div id="dice-container-1" class="dice-container">
-                <div id="player-container-1" class="player-container">
-                    <div class="player-name spacer-bot30">
-                        <h2> Player 1 </h2>
+                <div id="card-container-1" class="card-container">
+                    <div class="die-id spacer-bot30">
+                        <h2> Die 1 </h2>
                     </div>
                     <div class="die-container">
                         <div id="die-1" class="die">
-                            <div class="die-number n1"> </div>
-                            <div class="die-number n2 hidden"> </div>
-                            <div class="die-number n3"> </div>
-                            <div class="die-number n4"> </div>
-                            <div class="die-number n5 hidden"> </div>
-                            <div class="die-number n6"> </div>
-                            <div class="die-number n7"> </div>
-                            <div class="die-number n8 hidden"> </div>
-                            <div class="die-number n9"> </div>
+                            <div class="face-number n1"> </div>
+                            <div class="face-number n2 hidden"> </div>
+                            <div class="face-number n3"> </div>
+                            <div class="face-number n4"> </div>
+                            <div class="face-number n5 hidden"> </div>
+                            <div class="face-number n6"> </div>
+                            <div class="face-number n7"> </div>
+                            <div class="face-number n8 hidden"> </div>
+                            <div class="face-number n9"> </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div id="test" class="button-container spacer-tb50">
-                <button id="die-roller" class="primary-button hover" type="button"> Roll! </button>
             </div>
 
         </div>
