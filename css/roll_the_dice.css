@@ -172,13 +172,13 @@ button {
     color: black;
 }
 
-@media (width < 600px) {
+@media (width < 640px) {
     h1 {
         font-size: 4rem;
     }
 }
 
-@media (width < 450px) {
+@media (width < 500px) {
     h1 {
         font-size: 3rem;
     }
