@@ -68,17 +68,17 @@ function addDice(currentDiceNo, inputinputDiceNo) {
     let containerId = currentDiceNo + 1;
     while (inputinputDiceNo > currentDiceNo) {
         // Get the element to clone
-        let playerContainer = document.querySelector('#card-container-1');
+        let cardContainer = document.querySelector('#card-container-1');
         // Create a copy of it
-        let playerContainerClone = playerContainer.cloneNode(true);
+        let cardContainerClone = cardContainer.cloneNode(true);
         // Update the ID and update player
-        playerContainerClone.id = 'card-container-' + containerId; 
-        playerContainerClone.querySelector('h2').innerHTML = 'Player ' + containerId;
-        playerContainerClone.querySelector('.die').id = 'die-' + containerId;
+        cardContainerClone.id = 'card-container-' + containerId; 
+        cardContainerClone.querySelector('h2').innerHTML = 'Player ' + containerId;
+        cardContainerClone.querySelector('.die').id = 'die-' + containerId;
         // Inject it into the DOM
-        let lastPlayerContainer = document.getElementById('dice-container-1'); 
-        //lastPlayerContainer.after(playerContainerClone);
-        lastPlayerContainer.appendChild(playerContainerClone);
+        let lastcardContainer = document.getElementById('dice-container-1'); 
+        //lastcardContainer.after(cardContainerClone);
+        lastcardContainer.appendChild(cardContainerClone);
         containerId++;
         inputinputDiceNo--;
     }
@@ -88,9 +88,9 @@ function addDice(currentDiceNo, inputinputDiceNo) {
 
 // given the current dice number and the user input remove the difference 
 function removeDice(currentDiceNo, inputinputDiceNo) {
-    let lastPlayerContainer = document.querySelector('#dice-container-1');
+    let lastcardContainer = document.querySelector('#dice-container-1');
     while (currentDiceNo > inputinputDiceNo) {
-        lastPlayerContainer.removeChild(lastPlayerContainer.lastElementChild);
+        lastcardContainer.removeChild(lastcardContainer.lastElementChild);
         currentDiceNo--;
     }
 }
